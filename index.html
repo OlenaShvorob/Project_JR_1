@@ -7,8 +7,328 @@
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
+ stage2-html
+    <header>
+        <div class="header-top">
+            <div class="logo">
+                <img src="" alt="">
+            </div>
+            <nav class="top-nav">
+                <ul class="top-menu">
+                    <li><a href="#">Корпоративным клиентам</a></li>
+                    <li><a href="#">Авиабилеты</a></li>
+                    <li><a href="#">Справка</a></li>
+                </ul>
+            </nav>
+            <div class="language-selector">
+                <select>
+                    <option value="ru">RU</option>
+                    <option value="en">EN</option>
+                </select>
+            </div>
+            <button id="hamburger-btn" class="hamburger-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+        <div class="header-bottom">
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#">Авиабилеты</a></li>
+                    <li><a href="#">Ж/д билеты</a></li>
+                    <li><a href="#">Автобусы</a></li>
+                    <li><a href="#">Отели</a></li>
+                    <li><a href="#">Страхование</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <section class="search-block">
+            <form action="">
+                <!--1. Поля "Откуда" и "Куда"-->
+                <div class="form-row">
+                    <div class="form-group from">
+                        <label for="from">Откуда</label>
+                        <input type="text" id="from" name="from" placeholder="Введите город вылета">
+                        <!--Выпадающее меню-->
+                        <ul class="dropdown-menu from-dropdown">
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                        </ul>
+                    </div>
+                    <div class="form-group to">
+                        <label for="to">Куда</label>
+                        <input type="text" id="to" name="to" placeholder="Введите город прилета">
+                        <!--Выпадающее меню-->
+                        <ul class="dropdown-menu to-dropdown">
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                        </ul>
+                    </div>
+                </div>
+                <!--2. Выбор дат-->
+                <div class="form-row dates">
+                    <div class="form-group departure">
+                        <label for="departure-date">Туда</label>
+                        <input type="date" id="departure-date" name="departure-date">
+                    </div>
+                    <div class="form-group return">
+                        <label for="return-date">Обратно</label>
+                        <input type="date" id="return-date" name="return-date">
+                    </div>
+                </div>
+                <!--3. Пассажиры и класс-->
+                <div class="form-row passenger">
+                    <div class="form-group">
+                        <label>Пассажиры и класс</label>
+                        <!--Кнопка, отображающая ыбранное значение-->
+                        <button type="button" id="passenger-btn" class="passenger-btn">1 Пассажир, Эконом</button>
+                          <!--Скрытый выбор:-->  
+                        <div>
+                            <!--пассажиров-->
+                            <div class="passenger-quantity">
+                                <div class="passenger-row">
+                                    <label for="adult-input">Взрослые</label>
+                                    <input type="number" id="adult-input" class="adult-input" value="1" min="1" max="9">
+                                </div>
+                                <div class="passenger-row">
+                                    <label for="child-input">Дети</label>
+                                    <input type="number" id="child-input" class="child-input" value="0" min="0" max="9">
+                                </div>
+                                <div class="passenger-row">
+                                    <label for="infant-input">Младенцы</label>
+                                    <input type="number" id="infant-input" class="infant-input" value="0" min="0" max="9">
+                                </div>
+                            </div>
+                            <!--класса-->
+                            <div class="class-row">
+                                <span>Класс:</span>
+                                <label><input type="radio" name="class" value="any" checked>Любой</label>
+                                <label><input type="radio" name="class" value="business">Бизнес</label>
+                                <label><input type="radio" name="class" value="economy">Эконом</label>
+                            </div>
+                            <!--Подтверждение-->
+                            <button type="button" class="ok-btn">OK</button>
+                        </div>
+                    </div>
+                </div>
+                <!--4. Кнопка поиска-->
+                <div>
+                    <button type="submit">Найти</button>
+                </div>
+                <div class="complex-route">
+                    <label>
+                        <input type="checkbox" name="complex-route" id="complex-route">
+                        Сложный маршрут
+                    </label>
+                 </div>
+            </form>
+        </section>
+
+        <!--Ссылка в Telegram-->
+        <section class="manage-tickets">
+            <h2>Управляйте Вашими билетами в Telegram</h2>
+            <p></p>
+            <a href="#" class="btn">Перейти в Telegram</a>
+        </section>
+        <!--Билеты на автобус-->
+        <section>
+            <h2>Билеты на автобус по Китаю и Европе</h2>
+            <p></p>
+            <a href="#" class="btn">Найти билеты</a>
+        </section>
+        <!--Популярные направления-->
+        <section class="popular-destinations">
+            <h2></h2>
+            <div class="destinations-grid">
+                <article class="destinations-card">
+                    <h3>Варшава &rarr; Милан</h3>
+                    <p>от 771 &#36;</p>
+                </article>
+                <article class="destinations-card">
+                    <h3>Варшава &rarr; Милан</h3>
+                    <p>от 771 &#36;</p>
+                </article>
+                <article class="destinations-card">
+                    <h3>Варшава &rarr; Милан</h3>
+                    <p>от 771 &#36;</p>
+                </article>
+                <article class="destinations-card">
+                    <h3>Варшава &rarr; Милан</h3>
+                    <p>от 771 &#36;</p>
+                </article>
+                <article class="destinations-card">
+                    <h3>Варшава &rarr; Милан</h3>
+                    <p>от 771 &#36;</p>
+                </article>
+                <article class="destinations-card">
+                    <h3>Варшава &rarr; Милан</h3>
+                    <p>от 771 &#36;</p>
+                </article>
+            </div>
+        </section>
+        <!--Топ 10-->
+        <section class="top-airlines">
+            <h2>Топ-10 авиакомпаний</h2>
+            <ul class="airlines-list">
+                <li>Авиакомпания 1 - 4.7/5</li>
+                <li>Авиакомпания 2 - 4.7/5</li>
+                <li>Авиакомпания 3 - 4.7/5</li>
+                <li>Авиакомпания 4 - 4.7/5</li>
+                <li>Авиакомпания 5 - 4.7/5</li>
+                <li>Авиакомпания 6 - 4.6/5</li>
+                <li>Авиакомпания 7 - 4.5/5</li>
+                <li>Авиакомпания 8 - 4.5/5</li>
+                <li>Авиакомпания 9 - 4.5/5</li>
+                <li>Авиакомпания 10 - 4.5/5</li>
+            </ul>
+        </section>
+        <!--Горящие предложения-->
+        <section class="hot-deals">
+            <h2>Горящие распродажи авиарейсов</h2>
+            <p>Как найти авиабилеты со скидкой онлайн...</p>
+        </section>
+        <!--FAQ-->
+        <section class="faq">
+            <h2>Частые вопросы</h2>
+            <ul class="faq-list">
+                <li>
+                    <h3>Как забронировать авиабилет</h3>
+                    <p>Ответ...</p>
+                </li>
+                <li>
+                    <h3>Как оплатить авиабилет</h3>
+                    <p>Ответ...</p>
+                </li>
+                <li>
+                    <h3>Как зарегистрироваться на рейс</h3>
+                    <p>Ответ...</p>
+                </li>
+            </ul>
+        </section>
+        <!--Подписка-->
+        <section class="travel-offers">
+            <h2>Лучшие предложения для путешествий</h2>
+            <form class="subscription-form" action="" method="post">
+                <input type="email" name="email" id="email" placeholder="Email">
+                <button type="submit">Подписаться</button>
+            </form>
+        </section>
+    </main>
+
+
+    <footer>
+        <!-- Верхняя часть футера -->
+        <div class="footer-top">
+          <div class="footer-partners">
+            <ul>
+              <li><img src="" alt="IATA"></li>
+              <li><img src="" alt="PCI Security"></li>
+              <li><img src="" alt="VISA"></li>
+              <li><img src="" alt="MasterCard"></li>
+            </ul>
+          </div>
+        </div>
+      
+        <!-- Средняя часть футера: ссылки -->
+        <div class="footer-middle">
+          <div class="footer-links">
+            <!-- Колонка: Страны -->
+            <div class="footer-column">
+              <h4>Страны</h4>
+              <ul>
+                <li><a href="#">Испания</a></li>
+                <li><a href="#">Турция</a></li>
+                <li><a href="#">Египет</a></li>
+                <li><a href="#">Грузия</a></li>
+                <li><a href="#">Польша</a></li>
+                <li><a href="#">Франция</a></li>
+              </ul>
+              <a href="#" class="more-links">Все страны &rarr;</a>
+            </div>
+            <!-- Колонка: Города -->
+            <div class="footer-column">
+              <h4>Города</h4>
+              <ul>
+                <li><a href="#">Кишинев</a></li>
+                <li><a href="#">Дубай</a></li>
+                <li><a href="#">Варшава</a></li>
+                <li><a href="#">Прага</a></li>
+                <li><a href="#">Париж</a></li>
+                <li><a href="#">Франкфурт</a></li>
+              </ul>
+              <a href="#" class="more-links">Все города &rarr;</a>
+            </div>
+            <!-- Колонка: Направления -->
+            <div class="footer-column">
+              <h4>Направления</h4>
+              <ul>
+                <li><a href="#">Кишинев-Стамбул</a></li>
+                <li><a href="#">Кишинев-Анталия</a></li>
+                <li><a href="#">Варшава-Торонто</a></li>
+                <li><a href="#">Варшава-Париж</a></li>
+                <li><a href="#">Кишинев-Тбилиси</a></li>
+                <li><a href="#">Варшава-Стамбул</a></li>
+              </ul>
+              <a href="#" class="more-links">Все направления &rarr;</a>
+            </div>
+            <!-- Колонка: Аэропорты -->
+            <div class="footer-column">
+              <h4>Аэропорты</h4>
+              <ul>
+                <li><a href="#">Ф. Шопен (Варшава)</a></li>
+                <li><a href="#">Франфуркт</a></li>
+                <li><a href="#">Кишинев</a></li>
+                <li><a href="#">Фиумичино (Рим)</a></li>
+                <li><a href="#">Шарль де Голь (Париж)</a></li>
+              </ul>
+              <a href="#" class="more-links">Все аэропорты &rarr;</a>
+            </div>
+          </div>
+        </div>
+      
+        <!-- Нижняя часть футера: партнерская программа, приложения и социальные сети -->
+        <div class="footer-bottom">
+          <!-- Партнерская программа -->
+          <div class="footer-partner-program">
+            <a href="#">Партнерская программа</a>
+          </div>
+          <!-- Приложения и социальные сети -->
+          <div class="footer-apps-social">
+            <div class="footer-apps">
+              <ul>
+                <li><a href="#"><img src="" alt="Google Play"></a></li>
+                <li><a href="#"><img src="" alt="App Store"></a></li>
+              </ul>
+            </div>
+            <div class="footer-social">
+              <ul>
+                <li><a href="#"><img src="" alt="Facebook"></a></li>
+                <li><a href="#"><img src="" alt="Instagram"></a></li>
+                <li><a href="#"><img src="" alt="Telegram"></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+    </footer>
+          
+
+    
+
+
+
+
+
+<script src="js/script.js"></script>
+
+
     
 <script src="js/script.js"></script>
 <!-- Stage 1: Project Setup Completed -->
+ main
 </body>
 </html>
