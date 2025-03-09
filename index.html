@@ -19,7 +19,7 @@
                     <li><a href="#">Справка</a></li>
                 </ul>
             </nav>
-            <div class="language-selektor">
+            <div class="language-selector">
                 <select>
                     <option value="ru">RU</option>
                     <option value="en">EN</option>
@@ -91,8 +91,8 @@
                             <!--пассажиров-->
                             <div class="passenger-quantity">
                                 <div class="passenger-row">
-                                    <label for="aduit-input">Взрослые</label>
-                                    <input type="number" id="aduit-input" class="aduit-input" value="1" min="1" max="9">
+                                    <label for="adult-input">Взрослые</label>
+                                    <input type="number" id="adult-input" class="adult-input" value="1" min="1" max="9">
                                 </div>
                                 <div class="passenger-row">
                                     <label for="child-input">Дети</label>
@@ -106,9 +106,9 @@
                             <!--класса-->
                             <div class="class-row">
                                 <span>Класс:</span>
-                                <button type="button" class="class-btn" activ >Любой</button>
-                                <button type="button" class="class-btn">Бизнес</button>
-                                <button type="button" class="class-btn">Эконом</button>
+                                <label><input type="radio" name="class" value="any" checked>Любой</label>
+                                <label><input type="radio" name="class" value="business">Бизнес</label>
+                                <label><input type="radio" name="class" value="economy">Эконом</label>
                             </div>
                             <!--Подтверждение-->
                             <button type="button" class="ok-btn">OK</button>
@@ -172,7 +172,7 @@
         </section>
         <!--Топ 10-->
         <section class="top-airlines">
-            <h2>ТОП-10 авиакомпаний</h2>
+            <h2>Топ-10 авиакомпаний</h2>
             <ul class="airlines-list">
                 <li>Авиакомпания 1 - 4.7/5</li>
                 <li>Авиакомпания 2 - 4.7/5</li>
