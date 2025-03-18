@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
- stage2-html
     <header>
         <div class="header-top">
             <div class="logo">
@@ -33,6 +32,7 @@
             </button>
         </div>
         <div class="header-bottom">
+            <h1 class="main-heading">Лучшие авиабилеты по самым низким ценам</h1>
             <nav class="main-nav">
                 <ul>
                     <li><a href="#">Авиабилеты</a></li>
@@ -44,7 +44,7 @@
             </nav>
         </div>
     </header>
-    <main>
+    <main class="grid-layout">
         <section class="search-block">
             <form action="">
                 <!--1. Поля "Откуда" и "Куда"-->
@@ -89,6 +89,7 @@
                         <button type="button" id="passenger-btn" class="passenger-btn">1 Пассажир, Эконом</button>
                           <!--Скрытый выбор:-->  
                         <div>
+                          <div class="passenger-popup">
                             <!--пассажиров-->
                             <div class="passenger-quantity">
                                 <div class="passenger-row">
@@ -103,8 +104,8 @@
                                     <label for="infant-input">Младенцы</label>
                                     <input type="number" id="infant-input" class="infant-input" value="0" min="0" max="9">
                                 </div>
-                            </div>
-                            <!--класса-->
+                            </div>                          
+                           <!--класса-->
                             <div class="class-row">
                                 <span>Класс:</span>
                                 <label><input type="radio" name="class" value="any" checked>Любой</label>
@@ -113,6 +114,7 @@
                             </div>
                             <!--Подтверждение-->
                             <button type="button" class="ok-btn">OK</button>
+                          </div>  
                         </div>
                     </div>
                 </div>
@@ -128,7 +130,6 @@
                  </div>
             </form>
         </section>
-
         <!--Ссылка в Telegram-->
         <section class="manage-tickets">
             <h2>Управляйте Вашими билетами в Telegram</h2>
@@ -136,7 +137,7 @@
             <a href="#" class="btn">Перейти в Telegram</a>
         </section>
         <!--Билеты на автобус-->
-        <section>
+        <section class="bus-tickets">
             <h2>Билеты на автобус по Китаю и Европе</h2>
             <p></p>
             <a href="#" class="btn">Найти билеты</a>
@@ -169,6 +170,22 @@
                     <h3>Варшава &rarr; Милан</h3>
                     <p>от 771 &#36;</p>
                 </article>
+                <article class="destinations-card">
+                   <h3>Варшава &rarr; Милан</h3>
+                   <p>от 771 &#36;</p>
+                </article>
+                <article class="destinations-card">
+                   <h3>Варшава &rarr; Милан</h3>
+                   <p>от 771 &#36;</p>
+                </article>
+                <article class="destinations-card">
+                   <h3>Варшава &rarr; Милан</h3>
+                   <p>от 771 &#36;</p>
+                </article>
+                <article class="destinations-card">
+                   <h3>Варшава &rarr; Милан</h3>
+                   <p>от 771 &#36;</p>
+                </article>
             </div>
         </section>
         <!--Топ 10-->
@@ -190,7 +207,11 @@
         <!--Горящие предложения-->
         <section class="hot-deals">
             <h2>Горящие распродажи авиарейсов</h2>
-            <p>Как найти авиабилеты со скидкой онлайн...</p>
+            <p>Как найти авиабилеты со скидкой онлайн...
+              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+
+
+            </p>
         </section>
         <!--FAQ-->
         <section class="faq">
@@ -219,6 +240,127 @@
             </form>
         </section>
     </main>
+
+    <!--Календарь (Диалоговое окно)-->
+    <dialog class="calendar-container" open>
+    <div class="calendar">
+      <div class="calendar-header">
+        <div class="calendar-label">Выберите дату туда</div>
+        <div class="calendar-date-controls">
+          <button class="calendar-date-control">В одну сторону</button>
+        </div>
+      </div>
+      <div class="calendar-controls">
+        <button class="calendar-month-control calendar-month-control-rev">Назад</button>
+        <button class="calendar-month-control calendar-month-control-fwd">Вперед</button>
+      </div>
+      <div class="calendar-dates">
+        <div class="calendar-month">
+          <div class="calendar-month-name">Сентябрь 2024</div>
+          <div class="calendar-month-dates">
+            <ul class="calendar-month-date-names">
+              <li>пн</li>
+              <li>вт</li>
+              <li>ср</li>
+              <li>чт</li>
+              <li>пт</li>
+              <li>сб</li>
+              <li>вс</li>
+            </ul>
+            <ul class="calendar-month-dates-days">
+              <li class="calendar-month-dates-day-past"></li>
+              <li class="calendar-month-dates-day-past"></li>
+              <li class="calendar-month-dates-day-past"></li>
+              <li class="calendar-month-dates-day-past"></li>
+              <li class="calendar-month-dates-day-past"></li>
+              <li class="calendar-month-dates-day-past">1</li>
+              <li class="calendar-month-dates-day-past">2</li>
+              <li class="calendar-month-dates-day-past">3</li>
+              <li class="calendar-month-dates-day-past">4</li>
+              <li class="calendar-month-dates-day-past">5</li>
+              <li class="calendar-month-dates-day-past">6</li>
+              <li class="calendar-month-dates-day-past">7</li>
+              <li class="calendar-month-dates-day-past">8</li>
+              <li class="calendar-month-dates-day-past">9</li>
+              <li class="calendar-month-dates-day-past">10</li>
+              <li class="calendar-month-dates-day-past">11</li>
+              <li class="calendar-month-dates-day-past">12</li>
+              <li class="calendar-month-dates-day-past">13</li>
+              <li class="calendar-month-dates-day-past">14</li>
+              <li class="calendar-month-dates-day-past">15</li>
+              <li class="calendar-month-dates-day-past">16</li>
+              <li class="calendar-month-dates-day-past">17</li>
+              <li class="calendar-month-dates-day-past">18</li>
+              <li class="calendar-month-dates-day-past">19</li>
+              <li class="calendar-month-dates-day-past">20</li>
+              <li class="calendar-month-dates-day-past">21</li>
+              <li class="calendar-month-dates-day-past">22</li>
+              <li class="calendar-month-dates-day-past">23</li>
+              <li class="calendar-month-dates-day-past">24</li>
+              <li class="calendar-month-dates-day-past">24</li>
+              <li class="calendar-month-dates-day-past">25</li>
+              <li class="calendar-month-dates-day-past">26</li>
+              <li class="calendar-month-dates-day-today">27</li>
+              <li>28</li>
+            </ul>
+          </div>
+        </div>
+        <div class="calendar-month">
+          <div class="calendar-month-name">Май 2024</div>
+          <div class="calendar-month-dates">
+            <ul class="calendar-month-date-names">
+              <li>пн</li>
+              <li>вт</li>
+              <li>ср</li>
+              <li>чт</li>
+              <li>пт</li>
+              <li>сб</li>
+              <li>вс</li>
+            </ul>
+            <ul class="calendar-month-dates-days">
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li>1</li>
+              <li>2</li>
+              <li>3</li>
+              <li>4</li>
+              <li class="calendar-month-dates-day-from">5</li>
+              <li class="calendar-month-dates-day-in-range">6</li>
+              <li class="calendar-month-dates-day-in-range">7</li>
+              <li class="calendar-month-dates-day-in-range">8</li>
+              <li class="calendar-month-dates-day-in-range">9</li>
+              <li class="calendar-month-dates-day-in-range">10</li>
+              <li class="calendar-month-dates-day-in-range">11</li>
+              <li class="calendar-month-dates-day-in-range">12</li>
+              <li class="calendar-month-dates-day-in-range">13</li>
+              <li class="calendar-month-dates-day-to">14</li>
+              <li>15</li>
+              <li>16</li>
+              <li>17</li>
+              <li>18</li>
+              <li>19</li>
+              <li>20</li>
+              <li>21</li>
+              <li>22</li>
+              <li>23</li>
+              <li>24</li>
+              <li>24</li>
+              <li>25</li>
+              <li>26</li>
+              <li>27</li>
+              <li>28</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="calendar-note">
+        Для отображения цен необходимо выбрать маршрут
+      </div>
+    </div>
+  </dialog>
 
 
     <footer>
@@ -315,20 +457,8 @@
           </div>
         </div>
     </footer>
-          
-
-    
-
-
-
-
-
+   
 <script src="js/script.js"></script>
 
-
-    
-<script src="js/script.js"></script>
-<!-- Stage 1: Project Setup Completed -->
- main
 </body>
 </html>

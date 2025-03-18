@@ -1,0 +1,652 @@
+/*************************************
+  1. Сброс и базовые стили
+*************************************/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  html, body {
+    margin: 0 !important;
+    padding: 0 !important;
+    font-family: 'Roboto', sans-serif;
+    background-color: #fff;
+    color: #333;
+    line-height: 1.6;
+  }
+  :root {
+    --primary-violet: #6E36F7;
+    --accent-red:     #FF4D4D;
+    --white:          #FFFFFF;
+    --light-gray:     #f8f9fa;
+    --max-width:      1200px;
+  }
+  
+  /*************************************
+    2. Шапка (Header)
+  *************************************/
+  header {
+    background-color: var(--primary-violet);
+    color: var(--white);
+    margin-bottom: 0;  /* Никаких отступов снизу */
+    padding-bottom: 0;
+    border-bottom: none;
+  }
+  .header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+  }
+  .logo img {
+    height: 50px;
+  }
+  .top-nav ul {
+    display: flex;
+    gap: 15px;
+    list-style: none;
+  }
+  .top-nav a {
+    color: var(--white);
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s;
+  }
+  .top-nav a:hover {
+    color: var(--accent-red);
+  }
+  .language-selector select {
+    padding: 8px 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+  }
+  .hamburger-btn {
+    display: none; /* Показываем на мобильном, если потребуется */
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  .hamburger-btn span {
+    width: 25px;
+    height: 3px;
+    background: var(--white);
+  }
+  .header-bottom {
+    padding: 10px 20px;
+  }
+  .main-heading {
+    color: var(--white);
+    font-size: 32px;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  .main-nav ul {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    list-style: none;
+  }
+  .main-nav a {
+    background-color: var(--white);
+    color: var(--primary-violet);
+    text-decoration: none;
+    font-weight: 500;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: background-color 0.3s;
+  }
+  .main-nav a:hover {
+    background-color: #f4f4f4;
+  }
+  /* Для 4-го пункта ("Отели") – добавляем "-60%" */
+  .main-nav ul li:nth-child(4) a {
+    position: relative;
+    padding-right: 50px;
+  }
+  .main-nav ul li:nth-child(4) a::after {
+    content: "-60%";
+    position: absolute;
+    right: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: var(--accent-red);
+    color: var(--white);
+    border-radius: 3px;
+    padding: 2px 6px;
+    font-size: 14px;
+  }
+  
+  /*************************************
+    3. Поисковый блок (search-block)
+       – объединён с header, единый фиолетовый фон, без зазоров
+  *************************************/
+  .search-block {
+    max-width: none;
+    width: 100vw;
+    background-color: var(--primary-violet);
+    color: var(--white);
+    padding: 40px 20px;
+    text-align: center;
+    position: relative;
+    margin-top: 0;  /* Нет отступа сверху */
+    border-top: none;
+    left: 50%;                       
+    right: 50%;
+    margin-left: -50vw;            
+    margin-right: -50vw;
+  }
+   /* Форма — поля в одну строку */
+  .search-block form {
+    display: flex;
+    flex-wrap: nowrap;  /* Запрещаем перенос */
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    max-width: var(--max-width);
+    margin: 0 auto;
+  }
+  .form-row {
+    display: contents;
+  }
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+  }
+  .form-group label {
+    font-size: 14px;
+    margin-bottom: 5px;
+    color: var(--white);
+  }
+  /* Фиксированная ширина полей, чтобы они влезли в одну строку */
+  .form-group input[type="text"],
+  .form-group input[type="date"],
+  .form-group input[type="number"] {
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100px;
+    margin: 0;
+  }
+  .search-block form > div:last-child button[type="submit"] {
+    background-color: var(--accent-red);
+    color: var(--white);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  .search-block form > div:last-child button[type="submit"]:hover {
+    background-color: #e60044;
+  }
+  .complex-route {
+    font-size: 14px;
+    margin-left: 5px;
+    margin-top: 0;
+    text-align: center;
+    color: var(--white);
+    white-space: nowrap;
+  }
+  .complex-route input[type="checkbox"] {
+    margin-right: 5px;
+  }
+  
+  /*************************************
+    4. Всплывающее окно для пассажиров (passenger-popup)
+  *************************************/
+  .passenger-popup {
+    display: none;
+    position: absolute;
+    top: 110%;
+    left: 0;
+    background-color: var(--white);
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 15px;
+    z-index: 100;
+    width: 250px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  }
+  .passenger-popup.active {
+    display: block;
+  }
+  .passenger-quantity .passenger-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  .passenger-quantity label {
+    font-size: 14px;
+    color: #333;
+  }
+  .passenger-quantity input {
+    width: 50px;
+    padding: 5px;
+    font-size: 14px;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  .class-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+  .class-row span {
+    font-size: 14px;
+    color: #333;
+  }
+  .class-row label {
+    font-size: 14px;
+    color: #333;
+    cursor: pointer;
+  }
+  .ok-btn {
+    background-color: var(--accent-red);
+    color: var(--white);
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  .ok-btn:hover {
+    background-color: #e60044;
+  }
+  
+  /*************************************
+    5. Основной контент – Grid Layout
+  *************************************/
+  main.grid-layout {
+    display: grid;
+    grid-template-columns: 2fr 2fr;
+    grid-template-rows: auto auto auto auto auto;
+    grid-template-areas:
+      "search search"
+      "manage bus"
+      "popular top"
+      "hot faq"
+      "hot offers";
+    gap: 20px;
+    max-width: var(--max-width);
+    margin: 0 auto 20px auto;
+    padding: 0 20px;
+  }
+  .search-block            { grid-area: search; }
+  .manage-tickets          { grid-area: manage; }
+  .bus-tickets             { grid-area: bus; }
+  .popular-destinations    { grid-area: popular; }
+  .top-airlines            { grid-area: top; }
+  .hot-deals {
+    grid-area: hot;
+    grid-row: span 2; /* Горящие предложения занимают две строки слева */
+  }
+  .faq                     { grid-area: faq; }
+  .travel-offers           { grid-area: offers; }
+  
+  /* Стили секций */
+  .manage-tickets,
+  .bus-tickets,
+  .popular-destinations,
+  .top-airlines,
+  .hot-deals,
+  .faq,
+  .travel-offers {
+    background-color: var(--white);
+    padding: 20px;
+    border: 1px solid #e2e2e2;
+    border-radius: 5px;
+    max-width: var(--max-width);
+    margin: 0 auto;
+  }
+  .manage-tickets h2,
+  .bus-tickets h2,
+  .popular-destinations h2,
+  .top-airlines h2,
+  .hot-deals h2,
+  .faq h2,
+  .travel-offers h2 {
+    color: var(--primary-violet);
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  .btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: var(--accent-red);
+    color: var(--white);
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 14px;
+    transition: background-color 0.3s;
+  }
+  .btn:hover {
+    background-color: #e60044;
+  }
+  .destinations-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+  }
+  .destinations-card {
+    background-color: var(--light-gray);
+    padding: 10px;
+    border-radius: 5px;
+    text-align: left;
+    transition: background-color 0.2s;
+  }
+  .destinations-card:hover {
+    background-color: #e9ecef;
+  }
+  .destinations-card h3 {
+    margin-bottom: 5px;
+    color: var(--primary-violet);
+  }
+  
+  /*************************************
+    6. Календарь
+  *************************************/
+  .calendar-container {
+    background: #fff;
+    border: 0;
+    border-radius: 2px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    padding: 20px;
+    max-width: 600px;
+    margin: 20px auto;
+  }
+  .calendar {
+    position: relative;
+    --highlight-color: rgba(247, 64, 105, 1);
+    --highlight-transparent-color: color(srgb 0.9992 0.9106 0.9296);
+    --lighter-text-color: #666;
+    --font-size-smaller: 87.5%;
+    --font-size-smallest: 75%;
+  }
+  .calendar-header {
+    align-items: baseline;
+    display: grid;
+    grid-template-columns: repeat(2, 50%);
+    margin-bottom: 1.6em;
+  }
+  .calendar-label {
+    font-weight: 500;
+  }
+  .calendar-date-control {
+    background: var(--highlight-transparent-color);
+    border: 0;
+    border-radius: 5px;
+    color: var(--highlight-color);
+    font-size: var(--font-size-smaller);
+    line-height: 2.4rem;
+    width: 100%;
+    cursor: pointer;
+  }
+  .calendar-month-control {
+    background: transparent;
+    border: 0;
+    font-size: 0;
+    position: absolute;
+    cursor: pointer;
+  }
+  .calendar-month-control::before {
+    color: #bbb;
+    font-size: 16px;
+  }
+  .calendar-month-control-rev {
+    left: 0;
+  }
+  .calendar-month-control-rev::before {
+    content: "<";
+  }
+  .calendar-month-control-fwd {
+    right: 0;
+  }
+  .calendar-month-control-fwd::before {
+    content: ">";
+  }
+  .calendar-month-name {
+    font-size: var(--font-size-smaller);
+    text-align: center;
+    line-height: 2rem;
+    white-space: nowrap;
+  }
+  .calendar-dates {
+    align-items: flex-start;
+    display: flex;
+    gap: 25px;
+  }
+  .calendar-month-date-names,
+  .calendar-month-dates-days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  .calendar-month-dates-days {
+    gap: 0.4rem 0;
+  }
+  .calendar-month-date-names li,
+  .calendar-month-dates-days li {
+    font-size: var(--font-size-smaller);
+    line-height: 2.5rem;
+    min-width: 3rem;
+    text-align: center;
+  }
+  .calendar-month-date-names li {
+    color: var(--lighter-text-color);
+    font-size: var(--font-size-smallest);
+    font-weight: 500;
+  }
+  .calendar-month-dates-day-past {
+    color: #ccc;
+  }
+  .calendar-month-dates-day-today {
+    background: #ccc;
+    border-radius: 0 0 5px 5px;
+    position: relative;
+  }
+  .calendar-month-dates-day-today,
+  .calendar-month-dates-day-from,
+  .calendar-month-dates-day-to {
+    border-radius: 0 0 5px 5px;
+    position: relative;
+  }
+  .calendar-month-dates-day-today::before,
+  .calendar-month-dates-day-from::before,
+  .calendar-month-dates-day-to::before {
+    border-radius: 5px 5px 0 0;
+    font-size: 60%;
+    line-height: 1.5;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 100%;
+  }
+  .calendar-month-dates-day-today::before {
+    background: #ccc;
+    content: "Сегодня";
+  }
+  .calendar-month-dates-day-from,
+  .calendar-month-dates-day-to {
+    background: var(--highlight-color);
+    color: #fff;
+  }
+  .calendar-month-dates-day-from::before,
+  .calendar-month-dates-day-to::before {
+    background: var(--highlight-color);
+  }
+  .calendar-month-dates-day-from::before {
+    content: "Туда";
+  }
+  .calendar-month-dates-day-to::before {
+    content: "Обратно";
+  }
+  .calendar-month-dates-day-in-range {
+    background: rgba(254,234,246,1);
+  }
+  .calendar-note {
+    color: var(--lighter-text-color);
+    font-size: var(--font-size-smallest);
+    margin-top: 1rem;
+  }
+  .calendar-note::before {
+    content: "👉";
+    margin-right: 0.5rem;
+  }
+  
+  /*************************************
+    7. Футер
+  *************************************/
+  footer {
+    background: var(--light-gray);
+    color: #333;
+    padding: 20px;
+    text-align: left;
+    border-top: 2px solid #e2e2e2;
+  }
+  .footer-top {
+    padding-bottom: 15px;
+    text-align: center;
+  }
+  .footer-partners ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 0;
+  }
+  .footer-partners img {
+    height: 40px;
+  }
+  .footer-middle {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    padding-bottom: 15px;
+  }
+  .footer-column {
+    min-width: 150px;
+    text-align: left;
+  }
+  .footer-column h4 {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  .footer-column ul {
+    list-style: none;
+    padding: 0;
+    font-size: 14px;
+    line-height: 1.4;
+  }
+  .footer-column ul li {
+    margin-bottom: 5px;
+  }
+  .footer-column a {
+    color: #333;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  .footer-column a:hover {
+    text-decoration: underline;
+  }
+  .more-links {
+    display: inline-block;
+    margin-top: 10px;
+    color: var(--primary-violet);
+    text-decoration: none;
+    font-size: 14px;
+  }
+  .more-links:hover {
+    text-decoration: underline;
+  }
+  .footer-bottom {
+    border-top: 1px solid #e2e2e2;
+    padding-top: 15px;
+    text-align: center;
+    font-size: 14px;
+  }
+  .footer-partner-program {
+    margin-bottom: 10px;
+  }
+  .footer-apps-social {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    margin-bottom: 10px;
+  }
+  .footer-apps ul,
+  .footer-social ul {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+    padding: 0;
+  }
+  .footer-apps img,
+  .footer-social img {
+    height: 30px;
+  }
+  
+  /*************************************
+    8. Адаптивность (мобильный)
+  *************************************/
+  @media (max-width: 768px) {
+    .header-top {
+      flex-direction: column;
+      gap: 10px;
+    }
+    .main-nav ul {
+      flex-direction: column;
+      gap: 10px;
+      text-align: center;
+    }
+    .hamburger-btn {
+      display: flex;
+    }
+    /* На мобильном разрешении разрешаем перенос полей */
+    .search-block form {
+      flex-wrap: wrap;
+      flex-direction: column;
+      align-items: center;
+    }
+    .form-group {
+      width: 100%;
+    }
+    .complex-route {
+      margin-left: 0;
+      margin-top: 10px;
+    }
+    main.grid-layout {
+      grid-template-columns: 1fr;
+      grid-template-areas:
+        "search"
+        "manage"
+        "bus"
+        "popular"
+        "top"
+        "hot"
+        "faq"
+        "offers";
+    }
+    .footer-middle {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+  
